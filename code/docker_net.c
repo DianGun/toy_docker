@@ -1,4 +1,3 @@
-// 添加 CLONE_NEWUSER
 #define _GNU_SOURCE
 #include <sys/types.h>
 #include <sys/wait.h>
@@ -129,12 +128,12 @@ int container_main(void *arg)
      * 你可以查看：/var/lib/docker/containers/<container_id>/目录，
      * 你会看到docker的这些文件的。
      */
-    if (mount("conf/hosts", "rootfs/etc/hosts", "none", MS_BIND, NULL) != 0 ||
-        mount("conf/hostname", "rootfs/etc/hostname", "none", MS_BIND, NULL) != 0 ||
-        mount("conf/resolv.conf", "rootfs/etc/resolv.conf", "none", MS_BIND, NULL) != 0)
-    {
-        perror("conf");
-    }
+    // if (mount("conf/hosts", "rootfs/etc/hosts", "none", MS_BIND, NULL) != 0 ||
+    //     mount("conf/hostname", "rootfs/etc/hostname", "none", MS_BIND, NULL) != 0 ||
+    //     mount("conf/resolv.conf", "rootfs/etc/resolv.conf", "none", MS_BIND, NULL) != 0)
+    // {
+    //     perror("conf");
+    // }
     /* 模仿docker run命令中的 -v, --volume=[] 参数干的事 */
     if (mount("/tmp/t1", "rootfs/mnt", "none", MS_BIND, NULL) != 0)
     {
