@@ -59,7 +59,7 @@ void child_set_net()
     system("ifconfig eth0 172.17.0.100/24 up");
 
     // 为容器增加一个路由规则，让容器可以访问外面的网络
-    system("ip route add default via 172.17.0.10");
+    system("ip route add default via 172.17.0.11");
 }
 
 void sys(const char *command, int net_namespace)
@@ -72,16 +72,16 @@ void sys(const char *command, int net_namespace)
 void set_net(pid_t container_pid)
 {
     // 增加一个 pair 虚拟网卡，注意其中的veth类型，其中一个网卡要按进容器中
-    sys("ip link add out type veth peer name in", 0);
+    sys("ip link add out1 type veth peer name in", 0);
 
     // 把 in 按到 namespace 中，这样容器中就会有一个新的网卡了
     sys("ip link set in netns %d", container_pid);
 
-    // ip
-    system("ifconfig out 172.17.0.10");
+    // 
+    system("ifconfig out1 172.17.0.1");
 
-    // 上面我们把 in 这个网卡按到了容器中，然后我们要把 out 添加上网桥上
-    system("brctl addif docker0 out");
+    // 上面我们把 in 这个网卡按到了容器中，然后我们要把 out1 添加上网桥上
+    system("brctl addif mydocker out1");
 }
 
 int container_main(void *arg)

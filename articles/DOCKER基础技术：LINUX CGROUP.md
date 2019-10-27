@@ -139,7 +139,7 @@ cpu 的利用率立刻下降：
 
 
 
-下面是一个线程的例子（不能）：
+下面是一个线程的例子（没有运行成功）：
 
 
 
@@ -226,6 +226,10 @@ int main (int argc, char *argv[])
 
 
 
+
+
+
+
 ### 磁盘I/O限制
 
 
@@ -235,8 +239,6 @@ int main (int argc, char *argv[])
 
 
 ## CGROUP 的子系统
-
-
 
 
 

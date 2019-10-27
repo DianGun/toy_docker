@@ -114,7 +114,6 @@ int container_main(void *arg)
     printf("Something's wrong!\n");
     return 1;
 }
-
 int main()
 {
     const int gid = getgid(), uid = getuid();
