@@ -26,7 +26,7 @@
 
 
 
-但是，仅仅 copy 博客上的代码是不能实现我现在这个 toy_docker 的。  
+但是，仅仅 copy 博客上的代码是不能实现一个 toy_docker 的。 
 
 
 
@@ -72,7 +72,7 @@
 
 
 
-+ `能通过 cgroup 限制 docker 的 cpu 的使用率`  
++ `能通过 cgroup 限制 toy_docker 的 cpu 的使用率`  
 
 
 
